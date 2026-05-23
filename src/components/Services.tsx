@@ -3,6 +3,11 @@ import { Eye, Scissors, Search, ArrowRight, X } from 'lucide-react';
 import aboutImg from '../assets/images/glaucoma.png';
 import about1Img from '../assets/images/atRisk.png';
 import about2Img from '../assets/images/typesofGlaucoma.png';
+import about3Img from '../assets/images/cataracts.png';
+import about4Img from '../assets/images/surgeryInvolve.png';
+import about5Img from '../assets/images/aftersurgery.png';
+import about6Img from '../assets/images/ophthalmology.png';
+
 const services = [
   {
     icon: Eye,
@@ -83,8 +88,7 @@ const services = [
       },
       {
         heading: 'Who Gets Cataracts?',
-        image:
-          'https://images.pexels.com/photos/7088530/pexels-photo-7088530.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        image: about3Img,
         content: [
           'Cataracts are very common and most occur as part of the normal ageing process. It is estimated that a large proportion of the population over the age of 65 develop cataracts.',
           'However, cataracts can also develop in younger patients, especially where there is a history of diabetes, steroid use, trauma, or genetic predisposition.'
@@ -109,8 +113,7 @@ const services = [
       },
       {
         heading: 'What Does Surgery Involve?',
-        image:
-          'https://images.pexels.com/photos/7580250/pexels-photo-7580250.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        image: about4Img,
         content: [
           'Ms Amerasinghe employs the latest techniques and uses advanced lenses, meaning most surgical procedures take less than 20 minutes as part of a day case surgery package.',
           'Surgery involves removing the cloudy lens and replacing it with a new highly technical synthetic lens. There are different types of lenses available, and the best choice can be tailored to the individual eye.',
@@ -120,8 +123,7 @@ const services = [
       },
       {
         heading: 'What Happens After Surgery?',
-        image:
-          'https://images.pexels.com/photos/8376275/pexels-photo-8376275.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        image: about5Img,
         content: [
           'Immediately after the operation you will go to the recovery room. A protective pad and shield will be placed over the eye for a few hours while the local anaesthetic wears off.',
           'The eye may feel slightly uncomfortable, but simple pain relief is usually enough if needed, and many patients do not need any painkillers at all.',
@@ -141,8 +143,7 @@ const services = [
     modalSections: [
       {
         heading: 'General Ophthalmology',
-        image:
-          'https://images.pexels.com/photos/8376237/pexels-photo-8376237.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        image: about6Img,
         content: [
           'Ms Amerasinghe has extensive experience in the assessment and management of a wide range of general eye complaints and conditions.',
           'This includes both urgent and less urgent concerns, with a specialist-led approach focused on accurate diagnosis, reassurance, and tailored treatment planning.',
