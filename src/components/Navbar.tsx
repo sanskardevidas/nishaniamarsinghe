@@ -85,8 +85,34 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Desktop CTA */}
+            {/* Desktop CTA & Accessibility Controls */}
             <div className="hidden md:flex items-center gap-3">
+              <div className="flex items-center bg-brand-section p-1 rounded-xl border border-brand-border text-xs font-semibold text-brand-dark">
+                <button
+                  onClick={() => document.documentElement.setAttribute('data-font-size', 'sm')}
+                  title="Small Text"
+                  className="px-2 py-1 hover:text-brand-primary transition-colors"
+                >
+                  A-
+                </button>
+                <span className="text-brand-border">|</span>
+                <button
+                  onClick={() => document.documentElement.setAttribute('data-font-size', 'md')}
+                  title="Default Text"
+                  className="px-2 py-1 hover:text-brand-primary transition-colors"
+                >
+                  A
+                </button>
+                <span className="text-brand-border">|</span>
+                <button
+                  onClick={() => document.documentElement.setAttribute('data-font-size', 'lg')}
+                  title="Large Text"
+                  className="px-2 py-1 hover:text-brand-primary transition-colors"
+                >
+                  A+
+                </button>
+              </div>
+
               <button
                 onClick={() => handleNav('#appointment')}
                 className="btn-primary text-sm py-2.5 px-5"
