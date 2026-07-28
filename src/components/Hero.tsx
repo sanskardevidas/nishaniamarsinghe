@@ -44,13 +44,13 @@ export default function Hero() {
       ref={containerRef}
       className="relative min-h-screen flex items-center overflow-hidden hero-gradient pt-24 sm:pt-28 pb-12 sm:pb-16"
     >
-      <div className="blue-orb w-[400px] sm:w-[700px] h-[400px] sm:h-[700px] -top-20 sm:-top-40 -right-20 sm:-right-40 opacity-60" />
-      <div className="blue-orb w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bottom-0 left-0 opacity-40" />
+      <div className="blue-orb w-[400px] sm:w-[700px] h-[400px] sm:h-[700px] -top-20 sm:-top-40 -right-20 sm:-right-40 opacity-60 pointer-events-none" />
+      <div className="blue-orb w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bottom-0 left-0 opacity-40 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           
-          {/* Text Section (First on mobile & desktop) */}
+          {/* Text Section */}
           <div className="order-1 lg:order-1">
             <div className="hero-animate reveal mb-4 sm:mb-6">
               <span className="inline-flex items-center gap-2 bg-brand-accent text-brand-cta text-xs font-semibold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full border border-blue-200">
@@ -137,103 +137,57 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Doctor Visual Section (Second on mobile, Right on desktop) */}
-          <div className="order-2 lg:order-2 relative mt-4 sm:mt-0">
-            <div className="hero-animate reveal-scale relative min-h-[380px] sm:min-h-[520px] lg:min-h-[620px] flex items-end justify-center">
-              {/* Soft glow behind organic shape */}
-              <div className="absolute left-1/2 top-1/2 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] lg:w-[560px] lg:h-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-300/20 blur-[60px] sm:blur-[90px] pointer-events-none" />
+          {/* Doctor Visual Section (Perfectly Centered Organic Frame) */}
+          <div className="order-2 lg:order-2 relative mt-2 sm:mt-0">
+            <div className="hero-animate reveal-scale relative w-full max-w-[330px] sm:max-w-[480px] lg:max-w-[540px] mx-auto">
+              
+              <div className="relative w-full h-[380px] sm:h-[500px] lg:h-[580px] flex items-end justify-center">
+                
+                {/* Soft Glow */}
+                <div className="absolute inset-0 m-auto w-[85%] h-[85%] rounded-full bg-blue-300/25 blur-[50px] sm:blur-[80px] pointer-events-none" />
 
-              {/* Organic background element */}
-              <div
-                className="
-                  absolute
-                  left-1/2
-                  top-1/2
-                  w-[270px]
-                  h-[330px]
-                  sm:w-[440px]
-                  sm:h-[500px]
-                  lg:w-[510px]
-                  lg:h-[560px]
-                  -translate-x-1/2
-                  -translate-y-1/2
-                  bg-gradient-to-br
-                  from-cyan-100
-                  via-blue-100
-                  to-indigo-100
-                  opacity-95
-                  pointer-events-none
-                "
-                style={{
-                  borderRadius:
-                    '58% 42% 48% 52% / 42% 52% 48% 58%',
-                }}
-              />
+                {/* Primary Organic Shape - Centered Behind Doctor */}
+                <div
+                  className="
+                    absolute
+                    inset-x-0
+                    bottom-2
+                    top-4
+                    m-auto
+                    w-[90%]
+                    h-[92%]
+                    bg-gradient-to-br
+                    from-cyan-100
+                    via-blue-100
+                    to-indigo-100
+                    opacity-95
+                    pointer-events-none
+                  "
+                  style={{
+                    borderRadius: '58% 42% 48% 52% / 42% 52% 48% 58%',
+                  }}
+                />
 
-              {/* Secondary decorative organic shape */}
-              <div
-                className="
-                  absolute
-                  right-[2%]
-                  top-[15%]
-                  w-24
-                  h-28
-                  sm:w-44
-                  sm:h-52
-                  bg-blue-100/70
-                  pointer-events-none
-                "
-                style={{
-                  borderRadius:
-                    '62% 38% 55% 45% / 44% 58% 42% 56%',
-                }}
-              />
+                {/* Subtle Outline Around Organic Shape */}
+                <div
+                  className="
+                    absolute
+                    inset-x-0
+                    bottom-1
+                    top-2
+                    m-auto
+                    w-[95%]
+                    h-[96%]
+                    border
+                    border-blue-200/70
+                    pointer-events-none
+                  "
+                  style={{
+                    borderRadius: '55% 45% 51% 49% / 45% 54% 46% 55%',
+                  }}
+                />
 
-              {/* Bottom-left decorative shape */}
-              <div
-                className="
-                  absolute
-                  left-[4%]
-                  bottom-[10%]
-                  w-20
-                  h-24
-                  sm:w-40
-                  sm:h-44
-                  bg-cyan-100/60
-                  pointer-events-none
-                "
-                style={{
-                  borderRadius:
-                    '46% 54% 38% 62% / 52% 42% 58% 48%',
-                }}
-              />
-
-              {/* Subtle outline around organic element */}
-              <div
-                className="
-                  absolute
-                  left-1/2
-                  top-1/2
-                  w-[290px]
-                  h-[350px]
-                  sm:w-[470px]
-                  sm:h-[530px]
-                  lg:w-[540px]
-                  lg:h-[590px]
-                  -translate-x-1/2
-                  -translate-y-1/2
-                  border
-                  border-blue-200/70
-                  pointer-events-none
-                "
-                style={{
-                  borderRadius:
-                    '55% 45% 51% 49% / 45% 54% 46% 55%',
-                }}
-              />
-
-              {/* Doctor Portrait Image */}
-              <div className="relative z-10 flex items-end justify-center w-full h-full">
+                {/* Doctor Portrait Image */}
                 <img
                   src={nishaniImg}
                   alt="Dr. Nishani Amerasinghe - Consultant Ophthalmologist"
@@ -241,83 +195,81 @@ export default function Hero() {
                     relative
                     z-10
                     w-auto
-                    h-[360px]
-                    sm:h-[540px]
-                    lg:h-[600px]
+                    h-[98%]
                     max-w-full
                     object-contain
                     object-bottom
-                    drop-shadow-[0_20px_35px_rgba(30,64,175,0.15)]
+                    drop-shadow-[0_20px_35px_rgba(30,64,175,0.18)]
                     transition-transform
                     duration-700
                     hover:scale-[1.02]
                   "
                 />
-              </div>
 
-              {/* Floating Badge 1: Rating */}
-              <div className="absolute top-[5%] left-[-10px] sm:left-[2%] lg:-left-8 animate-float z-20 scale-90 sm:scale-100">
-                <div className="glass-card rounded-2xl px-3 py-2 sm:px-4 sm:py-3 shadow-card flex items-center gap-2.5 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0">
-                    <Star
-                      size={16}
-                      className="text-amber-500 fill-amber-500"
-                    />
-                  </div>
-
-                  <div>
-                    <div className="font-bold text-brand-dark text-xs sm:text-sm">
-                      4.9 / 5.0
+                {/* Floating Badge 1: Rating */}
+                <div className="absolute top-[8%] -left-2 sm:-left-6 animate-float z-20 scale-90 sm:scale-100">
+                  <div className="glass-card rounded-2xl px-3 py-2 sm:px-4 sm:py-3 shadow-card flex items-center gap-2.5 sm:gap-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0">
+                      <Star
+                        size={16}
+                        className="text-amber-500 fill-amber-500"
+                      />
                     </div>
-                    <div className="text-[10px] sm:text-xs text-brand-soft">
-                      Patient Rating
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              {/* Floating Badge 2: Patients */}
-              <div className="absolute bottom-[4%] left-[-10px] sm:left-[3%] lg:-left-6 animate-float-delayed z-20 scale-90 sm:scale-100">
-                <div className="glass-card rounded-2xl px-3 py-2 sm:px-4 sm:py-3 shadow-card flex items-center gap-2.5 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
-                    <Users
-                      size={16}
-                      className="text-green-500"
-                    />
-                  </div>
-
-                  <div>
-                    <div className="font-bold text-brand-dark text-xs sm:text-sm">
-                      5,000+
-                    </div>
-                    <div className="text-[10px] sm:text-xs text-brand-soft">
-                      Trusted Patients
+                    <div>
+                      <div className="font-bold text-brand-dark text-xs sm:text-sm">
+                        4.9 / 5.0
+                      </div>
+                      <div className="text-[10px] sm:text-xs text-brand-soft">
+                        Patient Rating
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Floating Badge 3: NHS Consultant */}
-              <div className="absolute top-[30%] right-[-10px] sm:right-[1%] lg:-right-8 animate-float-slow z-20 scale-90 sm:scale-100">
-                <div className="glass-card rounded-2xl px-3 py-2 sm:px-4 sm:py-3 shadow-card flex items-center gap-2.5 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-brand-accent flex items-center justify-center flex-shrink-0">
-                    <Shield
-                      size={16}
-                      className="text-brand-primary"
-                    />
-                  </div>
-
-                  <div>
-                    <div className="font-bold text-brand-dark text-xs sm:text-sm">
-                      NHS
+                {/* Floating Badge 2: Patients */}
+                <div className="absolute bottom-[6%] -left-2 sm:-left-4 animate-float-delayed z-20 scale-90 sm:scale-100">
+                  <div className="glass-card rounded-2xl px-3 py-2 sm:px-4 sm:py-3 shadow-card flex items-center gap-2.5 sm:gap-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
+                      <Users
+                        size={16}
+                        className="text-green-500"
+                      />
                     </div>
-                    <div className="text-[10px] sm:text-xs text-brand-soft">
-                      Consultant
+
+                    <div>
+                      <div className="font-bold text-brand-dark text-xs sm:text-sm">
+                        5,000+
+                      </div>
+                      <div className="text-[10px] sm:text-xs text-brand-soft">
+                        Trusted Patients
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
+                {/* Floating Badge 3: NHS Consultant */}
+                <div className="absolute top-[32%] -right-2 sm:-right-6 animate-float-slow z-20 scale-90 sm:scale-100">
+                  <div className="glass-card rounded-2xl px-3 py-2 sm:px-4 sm:py-3 shadow-card flex items-center gap-2.5 sm:gap-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-brand-accent flex items-center justify-center flex-shrink-0">
+                      <Shield
+                        size={16}
+                        className="text-brand-primary"
+                      />
+                    </div>
+
+                    <div>
+                      <div className="font-bold text-brand-dark text-xs sm:text-sm">
+                        NHS
+                      </div>
+                      <div className="text-[10px] sm:text-xs text-brand-soft">
+                        Consultant
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
 
