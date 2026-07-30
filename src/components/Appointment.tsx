@@ -91,7 +91,7 @@ export default function Appointment() {
     try {
       const response = await fetch(
 
-        "https://sanskar1819.app.n8n.cloud/webhook-test/appointment-submission",
+        "https://sanskar1819.app.n8n.cloud/webhook/appointment-submission",
         {
           method: "POST",
           headers: {
