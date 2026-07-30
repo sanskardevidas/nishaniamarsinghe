@@ -84,17 +84,43 @@ export default function Appointment() {
     setStep((prev) => prev - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateStep(3)) return;
-
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 1200);
-  };
+    try {
+      const response = await fetch(
 
+        "https://sanskar1819.app.n8n.cloud/webhook-test/appointment-submission",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            service: form.service,
+            hospital: form.location,
+            appointmentDate: form.date,
+            appointmentTime: form.timeSlot,
+            patientName: form.name,
+            email: form.email,
+            phone: form.phone,
+            message: form.message,
+          }),
+        }
+      );
+
+      if (!response.ok) { 
+        throw new Error(`Webhook failed with status ${response.status}`);
+      }
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Appointment submission error:", error);
+      alert("Unable to submit appointment. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
   const inputClass = `w-full px-4 py-3 rounded-xl border border-brand-border bg-brand-section text-brand-dark text-sm placeholder:text-brand-soft focus:bg-white transition-all`;
 
   return (

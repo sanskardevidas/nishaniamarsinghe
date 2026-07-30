@@ -187,7 +187,7 @@ export default function Hero() {
                   }}
                 />
 
-                {/* Doctor Portrait Image */}
+                {/* Doctor Portrait Image */} 
                 <img
                   src={nishaniImg}
                   alt="Dr. Nishani Amerasinghe - Consultant Ophthalmologist"
@@ -195,15 +195,16 @@ export default function Hero() {
                     relative
                     z-10
                     w-auto
-                    h-[98%]
-                    max-w-full
+                    h-[125%]
+                    max-w-none
                     object-contain
                     object-bottom
+                    translate-y-[8%]
                     drop-shadow-[0_20px_35px_rgba(30,64,175,0.18)]
                     transition-transform
                     duration-700
                     hover:scale-[1.02]
-                  "
+                    "
                 />
 
                 {/* Floating Badge 1: Rating */}
