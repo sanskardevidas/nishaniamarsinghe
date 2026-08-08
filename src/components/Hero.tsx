@@ -137,75 +137,26 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Doctor Visual Section (Perfectly Centered Organic Frame) */}
+          {/* Doctor Visual Section (Photo Background Preserved) */}
           <div className="order-2 lg:order-2 relative mt-2 sm:mt-0">
             <div className="hero-animate reveal-scale relative w-full max-w-[330px] sm:max-w-[480px] lg:max-w-[540px] mx-auto">
               
-              <div className="relative w-full h-[380px] sm:h-[500px] lg:h-[580px] flex items-end justify-center">
+              <div className="relative w-full h-[330px] sm:h-[420px] lg:h-[480px] flex items-center justify-center">
                 
                 {/* Soft Glow */}
-                <div className="absolute inset-0 m-auto w-[85%] h-[85%] rounded-full bg-blue-300/25 blur-[50px] sm:blur-[80px] pointer-events-none" />
+                <div className="absolute -inset-5 rounded-[3rem] bg-blue-300/20 blur-[50px] sm:blur-[80px] pointer-events-none" />
 
-                {/* Primary Organic Shape - Centered Behind Doctor */}
-                <div
-                  className="
-                    absolute
-                    inset-x-0
-                    bottom-2
-                    top-4
-                    m-auto
-                    w-[90%]
-                    h-[92%]
-                    bg-gradient-to-br
-                    from-cyan-100
-                    via-blue-100
-                    to-indigo-100
-                    opacity-95
-                    pointer-events-none
-                  "
-                  style={{
-                    borderRadius: '58% 42% 48% 52% / 42% 52% 48% 58%',
-                  }}
-                />
+                {/* Subtle Outline */}
+                <div className="absolute inset-[1%] rounded-[2.3rem] border border-blue-200/70 pointer-events-none" />
 
-                {/* Subtle Outline Around Organic Shape */}
-                <div
-                  className="
-                    absolute
-                    inset-x-0
-                    bottom-1
-                    top-2
-                    m-auto
-                    w-[95%]
-                    h-[96%]
-                    border
-                    border-blue-200/70
-                    pointer-events-none
-                  "
-                  style={{
-                    borderRadius: '55% 45% 51% 49% / 45% 54% 46% 55%',
-                  }}
-                />
-
-                {/* Doctor Portrait Image */} 
-                <img
-                  src={nishaniImg}
-                  alt="Dr. Nishani Amerasinghe - Consultant Ophthalmologist"
-                  className="
-                    relative
-                    z-10
-                    w-auto
-                    h-[125%]
-                    max-w-none
-                    object-contain
-                    object-bottom
-                    translate-y-[8%]
-                    drop-shadow-[0_20px_35px_rgba(30,64,175,0.18)]
-                    transition-transform
-                    duration-700
-                    hover:scale-[1.02]
-                    "
-                />
+                {/* Doctor Portrait Image - Original Background Preserved, Waist Crop */}
+                <div className="absolute inset-[4%] overflow-hidden rounded-[2rem] sm:rounded-[2.3rem] shadow-[0_20px_55px_rgba(30,64,175,0.16)]">
+                  <img
+                    src={nishaniImg}
+                    alt="Dr. Nishani Amerasinghe - Consultant Ophthalmologist"
+                    className="w-full h-full object-cover object-[center_24%] transition-transform duration-700 hover:scale-[1.02]"
+                  />
+                </div>
 
                 {/* Floating Badge 1: Rating */}
                 <div className="absolute top-[8%] -left-2 sm:-left-6 animate-float z-20 scale-90 sm:scale-100">

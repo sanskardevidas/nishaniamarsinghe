@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Eye, Scissors, Search, ArrowRight, X, Sparkles, Filter } from 'lucide-react';
+import { Eye, Scissors, Search, ArrowRight, X, Sparkles } from 'lucide-react';
 import aboutImg from '../assets/images/glaucoma.png';
 import about1Img from '../assets/images/atRisk.png';
 import about2Img from '../assets/images/typesofGlaucoma.png';
@@ -105,16 +105,12 @@ const services = [
     ]
   }
 ];
-
 type ServiceItem = (typeof services)[number];
-
 export default function Services() {
   const ref = useRef<HTMLDivElement>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -130,26 +126,22 @@ export default function Services() {
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
-
-  const categories = ['All', 'Glaucoma & MIGS', 'Cataract Surgery', 'General Ophthalmology'];
-
   const filteredServices = services.filter((s) => {
-    const matchesCategory = selectedCategory === 'All' || s.category === selectedCategory;
-    const matchesSearch =
-      s.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      s.shortDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      s.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesCategory && matchesSearch;
-  });
+  const query = searchQuery.toLowerCase();
 
+  return (
+    s.title.toLowerCase().includes(query) ||
+    s.category.toLowerCase().includes(query) ||
+    s.shortDescription.toLowerCase().includes(query) ||
+    s.tags.some((t) => t.toLowerCase().includes(query))
+  );
+});
   const scrollToAppointment = () => {
     document.querySelector('#appointment')?.scrollIntoView({ behavior: 'smooth' });
   };
-
   const scrollToSimulator = () => {
     document.querySelector('#vision-simulator')?.scrollIntoView({ behavior: 'smooth' });
   };
-
   return (
     <>
       <section id="services" ref={ref} className="py-24 bg-brand-bg">
@@ -159,20 +151,21 @@ export default function Services() {
               <Eye size={12} />
               Specialist Services
             </div>
-
             <h2 className="service-reveal reveal stagger-1 text-4xl sm:text-5xl font-bold text-brand-dark mb-4 tracking-tight">
               Specialist Eye Care Services
             </h2>
-
             <p className="service-reveal reveal stagger-2 text-brand-soft text-lg max-w-2xl mx-auto leading-relaxed">
               Specialist-led care in glaucoma, cataract treatment, and general ophthalmology delivered with surgical precision.
             </p>
           </div>
-
           {/* Interactive Search & Category Filter Bar */}
-          <div className="mb-12 max-w-4xl mx-auto space-y-4">
+          {/* Interactive Search Bar */}
+          <div className="mb-8 max-w-4xl mx-auto">
             <div className="relative">
-              <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-soft" />
+              <Search
+                size={18}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-soft"
+              />
               <input
                 type="text"
                 placeholder="Search treatments, conditions, MIGS, or symptoms..."
@@ -184,32 +177,12 @@ export default function Services() {
                 <button
                   onClick={() => setSearchQuery('')}
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-brand-soft hover:text-brand-dark"
-                >
-                  Clear
+                  >
+                    Clear
                 </button>
               )}
             </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <span className="text-xs font-semibold text-brand-soft flex items-center gap-1 mr-2">
-                <Filter size={12} /> Filter:
-              </span>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
-                    selectedCategory === cat
-                      ? 'bg-brand-primary text-white shadow-button'
-                      : 'bg-white text-brand-dark hover:bg-brand-section border border-brand-border'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
           </div>
-
           {/* Vision Simulator Quick Trigger Box */}
           <div className="mb-10 max-w-4xl mx-auto bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-3xl p-6 shadow-float flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
@@ -228,7 +201,6 @@ export default function Services() {
               Open Simulator <ArrowRight size={14} />
             </button>
           </div>
-
           {/* Services Grid */}
           <div
             className="grid grid-cols-1 lg:grid-cols-3 gap-6"
@@ -237,7 +209,6 @@ export default function Services() {
             {filteredServices.map((service, i) => {
               const isActive = activeIndex === i;
               const Icon = service.icon;
-
               return (
                 <div
                   key={service.id}
@@ -262,26 +233,22 @@ export default function Services() {
                           className={isActive ? 'text-white' : service.iconColor}
                         />
                       </div>
-
                       <div className="flex-1">
                         <span className={`text-[11px] font-bold uppercase tracking-wider mb-2 block ${
                           isActive ? 'text-white/80' : 'text-brand-primary'
                         }`}>
                           {service.category}
                         </span>
-
                         <h3 className={`font-bold mb-3 leading-tight ${
                           isActive ? 'text-2xl text-white' : 'text-xl text-brand-dark'
                         }`}>
                           {service.title}
                         </h3>
-
                         <p className={`leading-relaxed text-sm mb-5 ${
                           isActive ? 'text-white/85' : 'text-brand-soft'
                         }`}>
                           {service.shortDescription}
                         </p>
-
                         <div className="flex flex-wrap gap-2 mb-6">
                           {service.tags.map((tag) => (
                             <span
