@@ -4,7 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Muli', 'system-ui', 'sans-serif'],
+        serif: ['"Ivy Mode"', 'Georgia', 'serif'],
+        display: ['"Ivy Mode"', 'Georgia', 'serif'],
       },
       colors: {
         brand: {
